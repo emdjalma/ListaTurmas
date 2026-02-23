@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turma G1A A - Lista de Alunos</title>
+    <style>
+        /* Fontes divertidas para tema infantil */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Comic+Neue:wght@400;700&display=swap');
+
+        body {
+            background-color: #f0f8ff; /* Azul Alice claro */
+            background-image: radial-gradient(#FFD700 2px, transparent 2px), radial-gradient(#FF69B4 2px, transparent 2px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 5px solid #87CEEB; /* Azul Céu */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background-color: #FFB6C1; /* Rosa claro */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px dashed #fff;
+        }
+
+        .school-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .class-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 0px #FF69B4;
+            margin: 0;
+        }
+
+        .info-bar {
+            background-color: #98FB98; /* Verde Paleta */
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            font-weight: bold;
+            color: #006400;
+            font-size: 1.1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        thead {
+            background-color: #FFD700; /* Dourado */
+            color: #d35400;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            font-size: 1.1em;
+        }
+
+        /* Zebra striping colorido */
+        tbody tr:nth-child(even) {
+            background-color: #F0FFFF;
+        }
+        tbody tr:hover {
+            background-color: #FFFACD; /* Amarelo limão suave */
+            cursor: default;
+        }
+
+        .gender-icon {
+            display: inline-block;
+            width: 25px;
+            text-align: center;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8em;
+            padding: 2px 0;
+            margin-right: 8px;
+        }
+
+        .girl { background-color: #FF69B4; }
+        .boy { background-color: #4682B4; }
+
+        .footer {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            background-color: #f9f9f9;
+        }
+
+        /* Elementos decorativos */
+        .decoration {
+            font-size: 1.5em;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="school-name">Secretaria Municipal de Educação - Suzano</div>
+            <div class="school-name">E.M. Djalma dos Santos Paiva</div>
+            <h1 class="class-title">Turma G1A A</h1>
+        </header>
+
+        <div class="info-bar">
+            <span>🎈 Creche Integral</span>
+            <span>⏰ 7h30 às 17h</span>
+            <span>👶 15 Alunos</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50px; text-align: center;">#</th>
+                    <th>Nome da Criança</th>
+                    <th>Nascimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">1</td>
+                    <td><span class="gender-icon girl">♀</span>Anallu De Paula Do Nascimento</td>
+                    <td>14/05/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">2</td>
+                    <td><span class="gender-icon girl">♀</span>Aurora Alves Ávila</td>
+                    <td>25/10/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">3</td>
+                    <td><span class="gender-icon boy">♂</span>Brian Antunes Dantas</td>
+                    <td>07/05/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">4</td>
+                    <td><span class="gender-icon girl">♀</span>Helena De Oliveira Mello</td>
+                    <td>14/11/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td><span class="gender-icon girl">♀</span>Lauryn Souza De Morais Bispo</td>
+                    <td>25/04/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">6</td>
+                    <td><span class="gender-icon girl">♀</span>Lunna Costa Cavalcante</td>
+                    <td>10/05/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">7</td>
+                    <td><span class="gender-icon girl">♀</span>Maite Nascimento Santana</td>
+                    <td>20/05/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">8</td>
+                    <td><span class="gender-icon boy">♂</span>Noah Samuel Da Silva Marinho</td>
+                    <td>31/08/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">9</td>
+                    <td><span class="gender-icon boy">♂</span>Ravi Miguel Da Silva Sgalbi</td>
+                    <td>19/05/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">10</td>
+                    <td><span class="gender-icon boy">♂</span>Romeo Prado Ochiuto</td>
+                    <td>27/04/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">11</td>
+                    <td><span class="gender-icon girl">♀</span>Sophia De Figueiredo Andrade</td>
+                    <td>10/08/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">12</td>
+                    <td><span class="gender-icon girl">♀</span>Sophia Maria Silva De Jesus</td>
+                    <td>03/10/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">13</td>
+                    <td><span class="gender-icon boy">♂</span>Ythan Mendes Takanashi</td>
+                    <td>21/06/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">14</td>
+                    <td><span class="gender-icon girl">♀</span>Zaya Pereira Dos Santos</td>
+                    <td>20/04/2025</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">15</td>
+                    <td><span class="gender-icon girl">♀</span>Zoe Kiura Bistaffa</td>
+                    <td>12/05/2025</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            Gerado com carinho para o ano letivo de 2026 🧸
+        </div>
+    </div>
+
+</body>
+</html>
