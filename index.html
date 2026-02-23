@@ -171,9 +171,12 @@
 
         async function carregarDados() {
             try {
-                const response = await fetch(urlPlanilha);
-                if (!response.ok) throw new Error('Falha na rede ao buscar CSV');
-                const textData = await response.text();
+                // Adiciona um timestamp na URL para "enganar" o cache do navegador
+const separador = urlPlanilha.includes('?') ? '&' : '?';
+const urlSemCache = `${urlPlanilha}${separador}t=${new Date().getTime()}`;
+
+// Faz a requisição forçando ignorar o cache local
+const response = await fetch(urlSemCache, { cache: "no-store" });
 
                 // Faz o parse do CSV
                 const linhas = textData.split('\n').map(linha => {
@@ -297,3 +300,4 @@
     </script>
 </body>
 </html>
+
