@@ -39,7 +39,7 @@
         /* Grade para acomodar as 8 turmas */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 25px;
             max-width: 1400px;
             margin: 0 auto;
@@ -81,7 +81,7 @@
 
         .table-container {
             flex-grow: 1;
-            max-height: 400px;
+            max-height: 1000px;
             overflow-y: auto;
         }
 
@@ -164,6 +164,7 @@
         const colTurma = 'Turma';
         const colNome = 'Nome';
         const colSexo = 'Sexo';
+        const colIdade = 'Idade';
 
         // =========================================================================
         // 2. LÓGICA DE CARREGAMENTO E AGRUPAMENTO
@@ -174,10 +175,10 @@
                 // Adiciona um timestamp na URL para "enganar" o cache do navegador
                 const separador = urlPlanilha.includes('?') ? '&' : '?';
                 const urlSemCache = `${urlPlanilha}${separador}t=${new Date().getTime()}`;
-                
+
                 // Faz a requisição forçando ignorar o cache local
                 const response = await fetch(urlSemCache, { cache: "no-store" });
-
+                
                 const textData = await response.text();
                 // Faz o parse do CSV
                 const linhas = textData.split('\n').map(linha => {
@@ -192,8 +193,9 @@
                 const idxTurma = getIndex(colTurma);
                 const idxNome = getIndex(colNome);
                 const idxSexo = getIndex(colSexo);
+                const idxIdade = getIndex(colIdade);
 
-                if (idxTurma === -1 || idxNome === -1 || idxSexo === -1) {
+                if (idxTurma === -1 || idxNome === -1 || idxSexo === -1 || idxIdade === -1) {
                     throw new Error('As colunas especificadas não foram encontradas no cabeçalho.');
                 }
 
@@ -208,12 +210,13 @@
                     const turma = colunas[idxTurma] || 'Sem Turma Definida';
                     const nome = colunas[idxNome];
                     const sexo = colunas[idxSexo] ? colunas[idxSexo].toUpperCase() : '';
+                    const idade = colunas[idxIdade];
 
                     if (!agrupamentoTurmas[turma]) {
                         agrupamentoTurmas[turma] = [];
                     }
                     
-                    agrupamentoTurmas[turma].push({ nome, sexo });
+                    agrupamentoTurmas[turma].push({ nome, sexo, idade });
                 }
 
                 renderizarTurmas(agrupamentoTurmas);
@@ -262,6 +265,7 @@
                         <tr>
                             <td style="text-align: center; width: 40px;">${index + 1}</td>
                             <td><span class="gender-icon ${classeSexo}">${icone}</span> ${aluno.nome}</td>
+                            <td>${aluno.idade}</td>
                         </tr>
                     `;
                 });
@@ -281,6 +285,7 @@
                                     <tr>
                                         <th style="text-align: center;">#</th>
                                         <th>Nome da Criança</th>
+                                        <th>Idade</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -301,5 +306,4 @@
     </script>
 </body>
 </html>
-
 
