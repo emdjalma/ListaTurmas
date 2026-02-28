@@ -172,12 +172,13 @@
         async function carregarDados() {
             try {
                 // Adiciona um timestamp na URL para "enganar" o cache do navegador
-const separador = urlPlanilha.includes('?') ? '&' : '?';
-const urlSemCache = `${urlPlanilha}${separador}t=${new Date().getTime()}`;
+                const separador = urlPlanilha.includes('?') ? '&' : '?';
+                const urlSemCache = `${urlPlanilha}${separador}t=${new Date().getTime()}`;
+                
+                // Faz a requisição forçando ignorar o cache local
+                const response = await fetch(urlSemCache, { cache: "no-store" });
 
-// Faz a requisição forçando ignorar o cache local
-const response = await fetch(urlSemCache, { cache: "no-store" });
-
+                const textData = await response.text();
                 // Faz o parse do CSV
                 const linhas = textData.split('\n').map(linha => {
                     return linha.split(',').map(item => item.replace(/(^"|"$)/g, '').trim());
@@ -300,4 +301,5 @@ const response = await fetch(urlSemCache, { cache: "no-store" });
     </script>
 </body>
 </html>
+
 
